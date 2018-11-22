@@ -1,0 +1,79 @@
+.c-al-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9000000;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.c-al-modal{
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  min-width: 300px;
+  left: 50%;
+  top: 250px;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 50%;
+  border-radius: 6px;
+  padding: 20px;
+  background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(227, 227, 236, 0.5) ), url('../image/poly.jpg');
+  color: #090909;
+}
+
+.c-al-header{
+font-family: verdana;
+font-weight: bold;
+font-size: 18px;
+padding-bottom: 1px;
+border-bottom: solid #0e0e0f 3px;
+margin-bottom: 15px;	
+}
+
+.c-al-message{
+margin-bottom: 35px;	
+}
+
+.c-al-action{
+text-align: right;	
+}
+
+.modal-button{
+	padding: 10px;
+	border-radius: 6px;
+	width: 100px;
+    -webkit-transition-duration: 0.4s; 
+    -moz-transition-duration: 0.4s; 
+    -ms-transition-duration: 0.4s; 
+    -o-transition-duration: 0.4s; 
+    transition-duration: 0.4s; 
+}
+
+.btn-danger{
+	color: #060606;
+	border: solid #060606 2px;
+	background-color: transparent;
+}
+
+.btn-danger:hover{
+	color: #fcfcfe;
+	border: none;
+	background-color: #060606;	
+}
+
+.btn-primary{
+	margin-right: 10px;
+	color: #fcfcfe;
+	border: solid #060606 2px;
+	background-color: #060606;
+}
+
+.btn-primary:hover{
+	color: #060606;
+	border: solid #060606 2px;
+	background-color: transparent;	
+}

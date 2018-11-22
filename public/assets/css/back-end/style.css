@@ -1,0 +1,363 @@
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background-image: url("../../image/poly.jpg");
+  opacity: 0.9;
+}
+
+.tLf{
+	width: 0px;
+	opacity: 0.9;
+}
+
+nav{
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	background: #FFFFFF;
+	padding: 0px;
+	min-height: 4.57rem;
+	font-family: "Muli", Georgia, "Times New Roman", Times, serif;
+	transition: 300ms ease all;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+}
+
+.navbar-left{
+	float: left;
+	width: 240px;
+	height: 4.57rem;
+	position: relative;
+	padding: 0rem 0.85rem;
+	transition: 300ms ease all;	
+	box-sizing: border-box;
+	margin: 10px 0px 10px 0px;
+}
+
+.navbar-right{
+	margin-left: 240px;
+	height: auto;
+	padding: 0rem 18px;
+	position: relative;
+	text-align: right;
+	padding-top: 20px;
+}
+
+.navbar-menu{
+	float: left;
+	height: 40px;
+	display: none;
+	cursor: pointer;
+}
+
+.navbar-logo{
+	width: 36px;
+	vertical-align: middle;
+	border-style: none;
+	box-sizing: border-box;
+}
+
+.navbar-title{
+	display: inline;
+	padding-left: 6px;
+	font-weight: 500;
+	vertical-align: middle;	
+	font-family: monospace;
+}
+
+.leftbar{
+	width: 240px;
+	transition: 300ms ease all;
+	backface-visibility: hidden;
+	box-shadow: 1px 0px 30px rgba(0, 0, 0, 0.1);
+	position: fixed;
+	top: 5.7rem;
+	height: calc(100% - 4.57rem);
+	color: #55595c;
+	background: #FFFFFF;
+	border-right: 1px solid #E4E7ED;
+	z-index: 1000;
+	display: table-cell;
+	overflow-y: auto;
+	opacity: 0.8;
+}
+
+.leftbar ul{
+	list-style: none;
+	padding: 0px;
+}
+
+.leftbar li{
+	line-height: 1.8;
+	list-style: none;
+	padding: 15px 2px 15px 35px;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.leftbar li a{
+	width: 100%; 
+	height: 100%;
+	font-size: 14px;
+	font-family: Palatino;
+	text-decoration: none;
+	color: inherit;	
+}
+
+.leftbar .active, .leftbar .active:hover{
+    background-color: #53C0E4;
+    color: white;	
+    font-weight: bold;
+}
+
+.leftbar li:hover{
+    background-color: #ededed;
+}
+
+.content-app{
+	margin-left: 260px;
+	margin-right: 20px;
+	padding: 2.2rem;
+	position: relative;
+	transition: 300ms ease all;
+	backface-visibility: hidden;
+	min-height: calc(100% - 32px);
+	width: auto;	
+	top: 7rem;
+}
+
+.content-header{
+	font-family: Verdana;
+	font-weight: initial;
+}
+
+.card{
+	box-shadow: 0 4px 8px 0 #BEC7CB;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border-radius: 0.27rem;
+	padding: 20px 35px;
+}
+
+.card-header {
+	padding-top: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	font-family: verdana;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+footer{
+	margin-left: 240px;
+	background: #FFFFFF;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1030;
+	padding: 10px;
+	overflow-x: hidden;
+	font-size: 12px;
+	border-top: 1px solid #E4E7ED;
+	font-family: Palatino;
+}
+
+table {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+	overflow-x: auto;
+}
+
+table tr {
+	border-bottom: 1px solid #ddd;
+}
+
+table th {
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	border-bottom: 2px solid #6678b1;
+	padding: 10px 8px;	
+}
+
+table td {
+	border-bottom: 1px solid #ccc;
+	color: #000;
+	padding: 10px 8px;	
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown > a, .dropdown > button {
+  background-color: white;
+  border: none;
+  padding: 6px 20px 6px 0px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.dropdown > a:before, .dropdown > button:before {
+  position: absolute;
+  right: 7px;
+  top: 12px;
+  content: ' ';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dropdown input[type=checkbox] {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  opacity: 0;
+}
+
+.dropdown input[type=checkbox]:checked {
+  position: fixed;
+  z-index:+0;
+  top: 0px; left: 0px; 
+  right: 0px; bottom: 0px;
+}
+
+.dropdown ul {
+  position: absolute;
+  top: 18px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  left: -40px;
+  list-style: none;
+  padding: 4px 0px;
+  display: none;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,.175);
+  z-index: 1;
+}
+
+.dropdown input[type=checkbox]:checked + ul {
+  display: block;
+}
+
+.dropdown ul li {
+  display: block;
+  padding: 6px 20px;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.dropdown ul li:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.dropdown ul li a {
+  text-decoration: none;
+  display: block;
+  color: black
+}
+
+.dropdown .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  font-size: 1px;
+  padding: 0;
+}
+
+.message{
+	padding: 10px;
+	background-color: #3cd177;
+	color: white;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1);	
+	font-family: monoscape;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+@media only screen and (max-width : 628px) {
+	.content-app{
+		margin-right: 0px;
+	}
+	.tLf{
+		width: 240px !important;
+		opacity: 1 !important;
+	}
+	.navbar-left{
+		width: 75%;
+	}	
+	.navbar-menu{
+		display: block;
+	}
+	.navbar-logo{
+		margin-left: 50px;
+	}
+	.leftbar{
+		width: 0px;
+	} 
+	.bg{
+		width: 100%;
+		opacity: 0.8;
+	}
+	footer .pull-right{
+		opacity: 0;
+	}
+	.content-app, footer{
+		margin-left: 0px;
+	}
+}
+
+@media only screen and (max-width : 356px) {
+
+	.navbar-logo{
+		display: none;
+	}
+
+	.navbar-title{
+		margin-left: 19%;
+		padding-top: 16px;
+	}
+
+	.user-info{
+		display: none;
+	}
+
+	table{
+		display: block;
+	}
+}
+
+@media only screen and (max-width : 800px) {
+	table{
+		display: block;
+	}
+}
