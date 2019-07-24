@@ -9,6 +9,8 @@
 
 <?php Vendor::View('layout.dashboard.leftbar', compact('_menu')); ?>
 
+<?php require Vendor::Path('libs/MonoAlpha.php'); ?>
+<?php $ma = new MonoAlpha(); ?>
 
   <div class="content-app">
     <h2 class="content-header"> Data Barang dari Pos Lain</h2>
@@ -33,8 +35,8 @@
           <?php while($d = $data->fetch()): ?>
             <tr>
                 <td><?php echo $d["id"]; ?></td>
-                <td><?php echo $d["nama"]; ?></td>
-                <td><?php echo $d["nama_kecamatan"]; ?></td>
+                <td><?php echo $ma->decrypt($d["nama"]); ?></td>
+                <td><?php echo $ma->decrypt($d["nama_kecamatan"]); ?></td>
                 <td><?php echo ($d['status']=='3' ? "Belum diantar" : "Sedang diantar"); ?></td>
                 <td>
 

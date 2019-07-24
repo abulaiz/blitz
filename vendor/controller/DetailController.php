@@ -2,6 +2,7 @@
 	// Important
 	require Vendor::Path('libs/Guard.php');
 	require Vendor::Path('libs/SenderUtility.php');
+	require Vendor::Path('libs/MonoAlpha.php');
 
 	// Require model
 	require Vendor::Path('model/pengiriman.php');
@@ -29,17 +30,19 @@
 			$data = $obj1->showDetailPengiriman($id);
 			$this->setStats($data['tanggal']);
 
+			$ma = new MonoAlpha();
+
 			$callback = array(
 				"text" => [
 					"id_pengiriman" => $data["id"],
-					"kode_asal" => $obj2->getKecamatan($data["kode_asal"]),
-					"kode_tujuan" => $obj2->getKecamatan($data["kode_tujuan"]),
+					"kode_asal" => $obj2->getKecamatan($data["kode_asal"], $ma),
+					"kode_tujuan" => $obj2->getKecamatan($data["kode_tujuan"], $ma),
 					"harga" => $data["harga"],
-					"nama_pengirim" => $data["nama"],
-					"kontak" => $data["kontak"],
-					"nama_penerima" => $data["nama_penerima"],
-					"alamat_penerima" => $data["alamat_penerima"],
-					"deskripsi_barang" => $data["deskripsi_barang"],
+					"nama_pengirim" => $ma->decrypt($data["nama"]),
+					"kontak" => $ma->decrypt($data["kontak"]),
+					"nama_penerima" => $ma->decrypt($data["nama_penerima"]),
+					"alamat_penerima" => $ma->decrypt($data["alamat_penerima"]),
+					"deskripsi_barang" => $ma->decrypt($data["deskripsi_barang"]),
 					"berat_barang" => $data["berat_benda"],
 					"stat-1" => $this->stat1,
 					"stat-2" => $this->stat2,

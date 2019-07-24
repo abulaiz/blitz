@@ -1,8 +1,10 @@
 <?php 
 	// Front end Layer  --------------------------------------------------
-	Router::get('','DashboardController@index');
+	Router::get('','HomeController@index');
+	Router::get('search','HomeController@search');
 
 	// Back End Layer ----------------------------------------------------
+	// Router::get('','DashboardController@index');
 
 	// Auth
 	Router::get('login','UserController@login');
@@ -39,4 +41,7 @@
 
 	// HApus Pengiriman
 	Router::get('delete_pengiriman', 'PengirimanController@delete');
+
+	// Seed ooy !!!
+	Router::get('seed/user', 'SeederController@user');	
  ?>

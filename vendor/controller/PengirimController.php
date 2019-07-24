@@ -1,6 +1,7 @@
 <?php 
 	// Important
 	require Vendor::Path('libs/SenderUtility.php');
+	require Vendor::Path('libs/MonoAlpha.php');
 	require Vendor::Path('libs/Guard.php');
 
 	// Require model
@@ -23,8 +24,10 @@
 			$obj = new Pengirim(Self::$_db);
 			$registered = $obj->hasRegistered($id);
 
+			$ma = new MonoAlpha();
+
 			if($registered){
-				echo json_encode(['registered'=>true, 'data' => $obj->getName($id)]);
+				echo json_encode(['registered'=>true, 'data' => $ma->decrypt($obj->getName($id)) ]);
 			} else {
 				echo json_encode(['registered'=>false]);
 			}

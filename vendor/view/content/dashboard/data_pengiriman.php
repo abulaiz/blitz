@@ -5,6 +5,9 @@
 
 <?php require Vendor::Path('view/layout/dashboard/navbar.php'); ?>
 
+<?php require Vendor::Path('libs/MonoAlpha.php'); ?>
+<?php $ma = new MonoAlpha(); ?>
+
 <?php $_menu['data_pengiriman'] = "class='active'"; ?>
 
 <?php Vendor::View('layout.dashboard.leftbar', compact('_menu')); ?>
@@ -33,8 +36,8 @@
           <?php while($d = $data->fetch()): ?>
             <tr>
                 <td><?php echo $d["id"]; ?></td>
-                <td><?php echo $d["nama"]; ?></td>
-                <td><?php echo $d["nama_kecamatan"]; ?></td>
+                <td><?php echo $ma->decrypt($d["nama"]); ?></td>
+                <td><?php echo $ma->decrypt($d["nama_kecamatan"]); ?></td>
                 <td><?php echo ($d['status']=='1' ? "Belum dikirim" : "Sedang dikirim"); ?></td>
                 <td>
 

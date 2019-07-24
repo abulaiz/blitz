@@ -6,6 +6,9 @@
 
 <?php require Vendor::Path('view/layout/dashboard/navbar.php'); ?>
 
+<?php require Vendor::Path('libs/MonoAlpha.php'); ?>
+<?php $ma = new MonoAlpha(); ?>
+
 <?php $_menu['input_pengiriman'] = "class='active'"; ?>
 
 <?php Vendor::View('layout.dashboard.leftbar', compact('_menu')); ?>
@@ -73,7 +76,7 @@
 				    	<?php  
 				    		while($data = $provinsi->fetch())
 				    		{
-				    			echo "<option value='".$data['id']."'>".$data['nama']."</option>";
+				    			echo "<option value='".$data['id']."'>".$ma->decrypt($data['nama'])."</option>";
 				    		}
 				    	?>
 				    </select>						

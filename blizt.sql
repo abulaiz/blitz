@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.4.1deb2ubuntu2.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2018 at 07:32 AM
--- Server version: 5.5.61-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.25
+-- Generation Time: Jun 23, 2019 at 10:30 AM
+-- Server version: 8.0.16
+-- PHP Version: 7.3.5-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `blizt`
@@ -26,15 +26,21 @@ SET time_zone = "+00:00";
 -- Table structure for table `detail_pengiriman`
 --
 
-CREATE TABLE IF NOT EXISTS `detail_pengiriman` (
+CREATE TABLE `detail_pengiriman` (
   `id_pengiriman` varchar(20) DEFAULT NULL,
   `deskripsi_barang` varchar(40) DEFAULT NULL,
   `berat_benda` decimal(5,2) DEFAULT NULL,
   `alamat_penerima` varchar(40) DEFAULT NULL,
   `nama_penerima` varchar(25) DEFAULT NULL,
-  `harga` int(11) DEFAULT NULL,
-  UNIQUE KEY `id_pengiriman` (`id_pengiriman`)
+  `harga` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_pengiriman`
+--
+
+INSERT INTO `detail_pengiriman` (`id_pengiriman`, `deskripsi_barang`, `berat_benda`, `alamat_penerima`, `nama_penerima`, `harga`) VALUES
+('134159E2A495-61AE5', 'yCunkpc', '5.00', 'xZboh!joj', 'xLbmp', 55000);
 
 -- --------------------------------------------------------
 
@@ -42,12 +48,10 @@ CREATE TABLE IF NOT EXISTS `detail_pengiriman` (
 -- Table structure for table `jarak_kantor_cabang`
 --
 
-CREATE TABLE IF NOT EXISTS `jarak_kantor_cabang` (
+CREATE TABLE `jarak_kantor_cabang` (
   `kode_asal` char(6) DEFAULT NULL,
   `kode_tujuan` char(6) DEFAULT NULL,
-  `jarak` int(11) DEFAULT NULL,
-  KEY `kode_asal` (`kode_asal`),
-  KEY `kode_tujuan` (`kode_tujuan`)
+  `jarak` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -134,12 +138,10 @@ INSERT INTO `jarak_kantor_cabang` (`kode_asal`, `kode_tujuan`, `jarak`) VALUES
 -- Table structure for table `kantor_cabang`
 --
 
-CREATE TABLE IF NOT EXISTS `kantor_cabang` (
+CREATE TABLE `kantor_cabang` (
   `kode` char(6) NOT NULL,
   `nama_kecamatan` varchar(50) DEFAULT NULL,
-  `id_kota` int(11) DEFAULT NULL,
-  PRIMARY KEY (`kode`),
-  KEY `id_kota` (`id_kota`)
+  `id_kota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -147,15 +149,15 @@ CREATE TABLE IF NOT EXISTS `kantor_cabang` (
 --
 
 INSERT INTO `kantor_cabang` (`kode`, `nama_kecamatan`, `id_kota`) VALUES
-('400101', 'Cibadak', 1),
-('400102', 'Cipaganti', 1),
-('400103', 'Pasteur', 1),
-('400201', 'Tembalang', 2),
-('400202', 'Gunung Pati', 2),
-('400203', 'Mijen', 2),
-('400301', 'Asemrowo', 3),
-('400302', 'Benowo', 3),
-('400303', 'Bubutan', 3);
+('400101', 'xDjcbebl', 1),
+('400102', 'xDjqbhbouj', 1),
+('400103', 'xQbtufvs', 1),
+('400201', 'zWhpedodqj', 2),
+('400202', 'zJxqxqj#Sdwl', 2),
+('400203', 'zPlmhq', 2),
+('400301', 'yCugotqyq', 3),
+('400302', 'yDgpqyq', 3),
+('400303', 'yDwdwvcp', 3);
 
 -- --------------------------------------------------------
 
@@ -163,12 +165,10 @@ INSERT INTO `kantor_cabang` (`kode`, `nama_kecamatan`, `id_kota`) VALUES
 -- Table structure for table `kota`
 --
 
-CREATE TABLE IF NOT EXISTS `kota` (
+CREATE TABLE `kota` (
   `id` int(11) NOT NULL DEFAULT '0',
   `nama` varchar(30) DEFAULT NULL,
-  `id_provinsi` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_provinsi` (`id_provinsi`)
+  `id_provinsi` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -176,9 +176,9 @@ CREATE TABLE IF NOT EXISTS `kota` (
 --
 
 INSERT INTO `kota` (`id`, `nama`, `id_provinsi`) VALUES
-(1, 'Bandung', 1),
-(2, 'Semarang', 2),
-(3, 'Surabaya', 3);
+(1, 'yDcpfwpi', 1),
+(2, 'xTfnbsboh', 2),
+(3, 'zVxuded|d', 3);
 
 -- --------------------------------------------------------
 
@@ -186,11 +186,10 @@ INSERT INTO `kota` (`id`, `nama`, `id_provinsi`) VALUES
 -- Table structure for table `pengirim`
 --
 
-CREATE TABLE IF NOT EXISTS `pengirim` (
+CREATE TABLE `pengirim` (
   `id` varchar(30) NOT NULL DEFAULT '',
   `nama` varchar(30) DEFAULT NULL,
-  `kontak` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `kontak` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -199,9 +198,19 @@ CREATE TABLE IF NOT EXISTS `pengirim` (
 
 INSERT INTO `pengirim` (`id`, `nama`, `kontak`) VALUES
 ('12123124', 'Jono', 'jono@jono'),
+('142112421', 'John Snow', '+32141212'),
 ('16111067', 'Imron', 'ronabulaiz@gmail.com'),
 ('1749128408', 'Ahmad', 'ahmad@gmail.com'),
-('79137791', 'Coba', 'lagilagi@example.com');
+('1753153', 'fHK', '923772'),
+('5235797879', 'Dare Mo I', '8537092735'),
+('70979807798', 'Udhin', '98908098'),
+('758092780', 'Siapa', '8023950325'),
+('79137791', 'Coba', 'lagilagi@example.com'),
+('797987', 'Apa', '214214124'),
+('7979879', 'yKotqp', 'zDex'),
+('80988', 'zEdux', 'xJnspo'),
+('877087097', 'Subaru', '70989709'),
+('98797987', 'Satu Lagi', '9741987214124');
 
 -- --------------------------------------------------------
 
@@ -209,18 +218,21 @@ INSERT INTO `pengirim` (`id`, `nama`, `kontak`) VALUES
 -- Table structure for table `pengiriman`
 --
 
-CREATE TABLE IF NOT EXISTS `pengiriman` (
+CREATE TABLE `pengiriman` (
   `id` varchar(20) NOT NULL DEFAULT '',
   `id_pengirim` varchar(30) NOT NULL,
   `kode_asal` char(6) NOT NULL,
   `kode_tujuan` char(6) NOT NULL,
   `status` char(1) DEFAULT NULL,
-  `tanggal` varchar(131) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_pengirim` (`id_pengirim`),
-  KEY `kode_asal` (`kode_asal`),
-  KEY `kode_tujuan` (`kode_tujuan`)
+  `tanggal` varchar(131) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengiriman`
+--
+
+INSERT INTO `pengiriman` (`id`, `id_pengirim`, `kode_asal`, `kode_tujuan`, `status`, `tanggal`) VALUES
+('134159E2A495-61AE5', '80988', '400101', '400102', '1', '{"1":"2019-06-22 17:32:05","2":null,"3":null,"4":null,"5":null}');
 
 -- --------------------------------------------------------
 
@@ -228,20 +240,19 @@ CREATE TABLE IF NOT EXISTS `pengiriman` (
 -- Table structure for table `provinsi`
 --
 
-CREATE TABLE IF NOT EXISTS `provinsi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+CREATE TABLE `provinsi` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `provinsi`
 --
 
 INSERT INTO `provinsi` (`id`, `nama`) VALUES
-(1, 'Jawa Barat'),
-(2, 'Jawa Tengah'),
-(3, 'Jawa Timur');
+(1, 'xKbxb!Cbsbu'),
+(2, 'yLcyc"Vgpicj'),
+(3, 'xKbxb!Ujnvs');
 
 -- --------------------------------------------------------
 
@@ -249,12 +260,11 @@ INSERT INTO `provinsi` (`id`, `nama`) VALUES
 -- Table structure for table `tarif`
 --
 
-CREATE TABLE IF NOT EXISTS `tarif` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tarif` (
+  `id` int(11) NOT NULL,
   `parameter` varchar(20) DEFAULT NULL,
-  `harga` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `harga` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tarif`
@@ -270,30 +280,107 @@ INSERT INTO `tarif` (`id`, `parameter`, `harga`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `username` varchar(30) NOT NULL DEFAULT '',
-  `password` varchar(50) DEFAULT NULL,
-  `token` char(3) DEFAULT NULL,
-  `kode_kantor_cabang` char(6) DEFAULT NULL,
-  PRIMARY KEY (`username`),
-  KEY `kode_kantor_cabang` (`kode_kantor_cabang`)
+  `password` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `password_key` smallint(6) NOT NULL,
+  `kode_kantor_cabang` char(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`username`, `password`, `token`, `kode_kantor_cabang`) VALUES
-('user-400101', '9JDFNRa', '23u', '400101'),
-('user-400102', 'q3b1ceBTW', '88I', '400102'),
-('user-400103', 'qH27Qls', 'JJz', '400103'),
-('user-400201', 'iyHzDVThn', 'AB0', '400201'),
-('user-400202', '1eDiLgzdcfu', 'Lli', '400202'),
-('user-400203', 'gbH0R', 'Xys', '400203'),
-('user-400301', 'naQ9imDG', 'BCH', '400301'),
-('user-400302', 'YwGKQW', 'bcl', '400302'),
-('user-400303', '41Rmzw2', 'sk3', '400303');
+INSERT INTO `users` (`username`, `password`, `password_key`, `kode_kantor_cabang`) VALUES
+('user-400101', '178x198x179x172x175x178x200x226', 3, '400101'),
+('user-400102', '291x297x280x249x247x241x262x284x297x339', 4, '400102'),
+('user-400103', '265x252x250x241x226x252x269x300', 5, '400103'),
+('user-400201', '252x245x235x212x205x216x211x236x247x283', 3, '400201'),
+('user-400202', '545x531x476x447x416x397x326x386x427x482x519x589', 6, '400202'),
+('user-400203', '165x177x170x165x182x203', 4, '400203'),
+('user-400301', '249x271x237x233x234x235x255x267x299', 4, '400301'),
+('user-400302', '153x173x173x171x182x183x202', 3, '400302'),
+('user-400303', '214x241x206x217x216x205x234x263', 4, '400303');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `detail_pengiriman`
+--
+ALTER TABLE `detail_pengiriman`
+  ADD UNIQUE KEY `id_pengiriman` (`id_pengiriman`);
+
+--
+-- Indexes for table `jarak_kantor_cabang`
+--
+ALTER TABLE `jarak_kantor_cabang`
+  ADD KEY `kode_asal` (`kode_asal`),
+  ADD KEY `kode_tujuan` (`kode_tujuan`);
+
+--
+-- Indexes for table `kantor_cabang`
+--
+ALTER TABLE `kantor_cabang`
+  ADD PRIMARY KEY (`kode`),
+  ADD KEY `id_kota` (`id_kota`);
+
+--
+-- Indexes for table `kota`
+--
+ALTER TABLE `kota`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_provinsi` (`id_provinsi`);
+
+--
+-- Indexes for table `pengirim`
+--
+ALTER TABLE `pengirim`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengiriman`
+--
+ALTER TABLE `pengiriman`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pengirim` (`id_pengirim`),
+  ADD KEY `kode_asal` (`kode_asal`),
+  ADD KEY `kode_tujuan` (`kode_tujuan`);
+
+--
+-- Indexes for table `provinsi`
+--
+ALTER TABLE `provinsi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tarif`
+--
+ALTER TABLE `tarif`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `kode_kantor_cabang` (`kode_kantor_cabang`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `provinsi`
+--
+ALTER TABLE `provinsi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tarif`
+--
+ALTER TABLE `tarif`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

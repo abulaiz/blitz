@@ -1,4 +1,8 @@
 <?php 
+
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 	
 	// Memulai Sessions
 	session_start();
@@ -25,8 +29,7 @@
 		$_request = $_SERVER['REDIRECT_URL'];
 
 
-	// Berlaku di localhost imron saja
-	$_request = str_replace("/blitz/public/", "", $_request);
+	$_request = str_replace("/labs/blitz/public/", "", $_request);
 
 
 	// Parsing global variable into libs Classes
@@ -39,6 +42,6 @@
 	require Vendor::Path('routes.php');	
 
 
-	// If URL cann't find request
+	// If URL cann't match with request
 	die("Error 404");
 ?>

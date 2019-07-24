@@ -179,6 +179,12 @@
 			return $data;	
 		}
 
+		public function detailUnsecure($id){
+		    $sql = "SELECT * FROM pengiriman WHERE id='$id'";
+		    $query = $this->db->query($sql);
+		    return $query;			
+		}
+
 
 	}
 

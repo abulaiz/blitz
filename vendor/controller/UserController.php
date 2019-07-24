@@ -1,6 +1,7 @@
 <?php 
 
 	require Vendor::Path('libs/Guard.php');
+	require Vendor::Path('libs/TriangleCrypt.php');
 	
 	require Vendor::Path('model/auth.php');
 
@@ -28,7 +29,8 @@
 			if($key==null){
 				Self::View('content.dashboard.login',compact('_error'));
 			} else {
-				$password = $this->guard->encrypt($this->guard->isPost('password'), $key);
+				$cry = new TriangleCrypt();
+				$password = $cry->encrypt($this->guard->isPost('password'), $key);
 				if($obj->isPassword($username, $password)){
 					$user = $obj->getProfile($username);
 					$this->guard->setUserInfo([

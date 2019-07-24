@@ -5,7 +5,7 @@
 		// Database Configurations
 		$db_hostname='localhost'; 
 		$db_username='root'; 
-		$db_password=''; 
+		$db_password='imron'; 
 		$dbname='blizt';
 
 		// instance of PDO Object

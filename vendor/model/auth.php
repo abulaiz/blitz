@@ -11,14 +11,14 @@
 
 		public function getKey($username)
 		{
-			$sql = "SELECT token FROM users WHERE username=?";
+			$sql = "SELECT password_key FROM users WHERE username=?";
 			$res = $this->db->prepare($sql);
 			$res->execute([$username]);
 
 			if($res->rowCount()!=1) return null;
 
 			$row = $res->fetch();
-			return $row['token'];			
+			return $row['password_key'];			
 		}
 
 		public function isPassword($username, $password)

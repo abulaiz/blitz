@@ -20,13 +20,19 @@
 			return $res;					
 		}	
 
-		public function getKecamatan($kode)
+		public function showAll(){
+			$sql = "SELECT * FROM kantor_cabang";
+			$res = $this->db->query($sql);
+			return $res;			
+		}
+
+		public function getKecamatan($kode, $en)
 		{
 			$sql = "SELECT nama_kecamatan FROM kantor_cabang WHERE kode = ?";
 			$res = $this->db->prepare($sql);
 			$res->execute([$kode]);
 			$data = $res->fetch();
-			return $kode." - ".$data["nama_kecamatan"];
+			return $kode." - ".$en->decrypt($data["nama_kecamatan"]);
 		}	
 
 	}

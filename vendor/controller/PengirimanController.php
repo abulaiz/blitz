@@ -2,6 +2,7 @@
 	// Important Libs
 	require Vendor::Path('libs/Guard.php');
 	require Vendor::Path('libs/SenderUtility.php');
+	require Vendor::Path('libs/MonoAlpha.php');
 
 	// Require model
 	require Vendor::Path('model/pengiriman.php');
@@ -44,10 +45,12 @@
 				"1" => date("Y-m-d H:i:s"), "2" => null, "3" => null, "4" => null, "5" => null
 			]);
 
+			$ma = new MonoAlpha();
+
 			// Mendaftarkan Pengirim
 			$obj = new Pengirim(Self::$_db);
 			if(!$obj->hasRegistered($id_pengirim)){
-				$obj->tambahPengirim($id_pengirim, $nama_pengirim, $kontak_pengirim);
+				$obj->tambahPengirim($id_pengirim, $ma->encrypt($nama_pengirim), $ma->encrypt($kontak_pengirim));
 			}
 
 			// Mendaftarkan catatan pengiriman
@@ -55,7 +58,7 @@
 			$obj2 = new Pengiriman(Self::$_db);
 			$insert = $obj2->insertPengiriman($id_pengiriman, $id_pengirim, $kode_asal, $kode_tujuan, $tanggal);
 			if($insert){
-				$obj2->insertDetail($id_pengiriman, $deskripsi_barang, $berat_benda, $alamat_penerima, $nama_penerima, $harga);
+				$obj2->insertDetail($id_pengiriman, $ma->encrypt($deskripsi_barang), $berat_benda, $ma->encrypt($alamat_penerima), $ma->encrypt($nama_penerima), $harga);
 				SenderUtility::upload($_FILES['gambar'] ,$id_pengiriman);
 				Guard::setExtra('pesan', 'Data pengiriman baru berhasil di tambahkan dengan No Resi (id) '.$id_pengiriman);
 				Self::directTo('pengiriman');

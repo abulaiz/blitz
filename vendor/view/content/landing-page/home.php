@@ -1,38 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ya Haloooo</title>
+	<title>Home</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/grid.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/landing-page.css">
+
 </head>
 <body>
-
-<section id="top">
-	
-</section>
-
-
-<!-- <h1>Show / Hide Animation with pure CSS</h1>
-
-<label class="trigger">
-  <input type="checkbox" class="checkbox checkbox--red" /> Show additional information
-  <span class="msg">
-    Hey there, I'm fading in/out with pure CSS. How cool is that?!
-  </span>
-</label>
-
-<div class="container">
-<div class="row">
-	<div class="col-md-4">Anu</div>
-	<div class="col-md-4">Anu</div>
-	<div class="col-md-4">Anu</div>
-</div>	
-</div> -->
-
+	<h1 style="margin-left: 20px;">Selamat Datang</h1>
+	<content style="padding : 20px;">
+		<div style="margin-left: 20px;">
+			<label style="display: block; margin-bottom: 10px;">Masukkan ID Kurir : </label>
+			<input type="text" style="display: block; width: 200px; margin-bottom: 10px;" id="id" placeholder="Masukkan ID">
+			<button id="cari" style="width: 200px;">Cari</button>			
+		</div>
+	</content>
 
 </body>
-  <script src="assets/js/tes.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		var a = document.getElementById('cari');
+		a.addEventListener('click', function(){
+			window.location = 'search?id=' + document.getElementById('id').value;
+		});
+	</script>
 
 </html>
